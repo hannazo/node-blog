@@ -1,9 +1,21 @@
 const http = require('http'); // HTTP - Hyper-Text Transfer Protocol
 const fs = require('fs');
+const _ = require('lodash')
 
 const server = http.createServer((req, res) => {
-    console.log(req.url, req.method);
+    // console.log(req.url, req.method);
 
+    // lodash
+    const num = _.random(0, 20); // random number between 0 and 20
+    console.log(num);
+
+    const greet = _.once(() => {
+        console.log('hello');
+    });
+
+    greet();
+    greet();
+    
     // Set header content type
     res.setHeader('Content-Type', 'text/html'); // Set the header for the content that being sent back to the browser
 
