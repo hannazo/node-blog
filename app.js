@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 
 // Express app
 const app = express();
@@ -10,14 +11,28 @@ app.set('view engine', 'ejs'); // Automaticly looking in "views" folder
 // Listen for requests
 app.listen(3000);
 
+// Middleware & static file
+app.use(express.static('public'))
+
+app.use(morgan('dev')); // Replaces middleware code below (kinda?)
+
+// Middleware we created before adding morgan
+// app.use((req, res, next) => { 
+//     console.log('New request made:');
+//     console.log('host: ', req.hostname);
+//     console.log('path: ', req.path);
+//     console.log('method: ', req.method);
+//     next();
+// });
+
 app.get('/', (req, res) => {
     // res.send('<p>Home Page</p>');
     // res.sendFile('./views/index.html', { root: __dirname });
     const blogs = [
-        {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-        {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-        {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-      ];
+        { title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur' },
+        { title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur' },
+        { title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur' },
+    ];
     res.render('index', { title: 'Home', blogs }); // { blogs: blogs } - because blogs and blogs called the same, can shorten to just blogs
 });
 
