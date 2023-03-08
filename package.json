@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/hannazo/node-blog.git"
   },
-  "author": "hannazo",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hannazo/node-blog/issues"

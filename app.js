@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
         {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
         {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
       ];
-    res.render('index', { title: 'Home', blogs }); // { blogs: blogs } - because blogs and blogs are called the same, can shorten to just blogs
+    res.render('index', { title: 'Home', blogs }); // { blogs: blogs } - because blogs and blogs called the same, can shorten to just blogs
 });
 
 app.get('/about', (req, res) => {
